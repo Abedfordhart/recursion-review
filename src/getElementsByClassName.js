@@ -7,4 +7,6 @@
 var getElementsByClassName = function(className
 ) {
   // your code here
+  var results = [];
+  console.log(document.children.length);
 };
