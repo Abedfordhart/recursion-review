@@ -4,9 +4,16 @@
 // };
 
 // But instead we're going to implement it from scratch:
-var getElementsByClassName = function(className
-) {
+var getElementsByClassName = function(className, parent, results) {
   // your code here
-  var results = [];
-  console.log(document.children.length);
+  var results = results || [];
+  var parent =  parent || document.body;
+
+  if(parent.classList.contains(className)){
+  	results.push(parent);
+  }
+  for(var i = 0; i < parent.children.length; i++){
+  	results.concat(getElementsByClassName(className, parent.children[i], results))
+  }
+  return results;
 };
